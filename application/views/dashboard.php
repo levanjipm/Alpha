@@ -9,6 +9,11 @@
 </head>
 <body>
 	<div class='row'>
-		
+<?php
+	foreach($result_user as $user){
+		echo $user->id;
+		echo $user->first_name;
+	}
+?>
 	</div>
 </body>
