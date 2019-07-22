@@ -4,6 +4,13 @@
 	class Event extends CI_Controller {
 		public function index()
 		{
+			//Load Header//
+			$this->load->helper('url');
+			
+			//Load body//
+			$data['model'] = new class{};
+			$this->load->view('header',$data);
+			
 			$this->load->model('Event_model');
 			$items = $this->Event_model->show_all_event();
 			
@@ -13,6 +20,10 @@
 		
 		public function create_event()
 		{
+			//Load header//
+			$data_header['css_list'] = array('application/css/create_event.css');
+			$this->load->view('header',$data_header);
+			
 			if ($this->input->method() == "post") $this->create_event_do();
 			
 			$data['model'] = new class{};
@@ -22,9 +33,10 @@
 		public function create_event_do()
 		{
 			$this->load->model('Event_model');
-			$this->Event_model->insert_from_post();
+			$item = $this->Event_model->insert_from_post();
 			
-			redirect('Event');
+			$data['text_result'] = $item;
+			echo $item;
 		}
 	}
 

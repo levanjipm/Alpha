@@ -10,6 +10,7 @@
 		public $created_by;
 		public $created_date;
 		public $event_date;
+		public $text_result;
 		
 		public function __construct()
 		{
@@ -67,6 +68,7 @@
 		{
 			$this->load->model('Event_model');
 			// $cur_event = $this->Event_model->get_by_account_id($this->session->userdata('id'));
+			
 			$this->id				= "";
 			$this->name				= $this->input->post('event_name');
 			$this->event_date		= $this->input->post('event_date');
@@ -74,8 +76,14 @@
 			$this->created_by		= 1;
 			$this->created_date		= date('Y-m-d');
 		
-			$db_item = $this->get_db_from_stub($this);
-			$this->db->insert($this->table_event, $db_item);
+			$db_item 				= $this->get_db_from_stub($this);
+			$db_result 				= $this->db->insert($this->table_event, $db_item);
+			if($db_result){
+				$text_result = 1;
+			} else {
+				$text_result = 0;
+			}
+			return $text_result;
 		}
 	}
 

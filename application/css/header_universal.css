@@ -1,0 +1,114 @@
+@font-face {
+  font-family: Bebasneue;
+  src: url(Bebasneue/BebasNeue.woff);
+}
+
+a{
+	cursor:pointer;
+	text-decoration:none;
+}
+
+.side_nav_universal{
+	position:fixed;
+	left:0;
+	top:0;
+	background-color:#161f2e;
+	height:800px;
+	width:18%;
+	color:white;
+}
+.side_nav_small{
+	position:fixed;
+	left:0;
+	top:0;
+	background-color:#161f2e;
+	height:800px;
+	width:5%;
+	color:white;
+	text-align:center;
+}
+
+.side_nav_small .fa{
+	font-size:2em;
+	color:white;	
+}
+
+.sub_menu{
+	position:absolute;
+	z-index:20;
+	background-color:white;
+	padding:10px;
+	min-width:150px;
+	text-align:left;
+	border:1px solid #ddd;
+	box-shadow:2px 2px 2px 2px #eee;
+}
+
+.sub_menu a{
+	color:#333;
+}
+
+.side_nav_universal .btn-transparent{
+	position:absolute;
+	right:0;
+	background-color:transparent;
+	border:none;
+	color:white;
+	z-index:15;
+	font-size:2em;
+}
+
+.side_nav_small .btn-transparent{
+	position:relative;
+	float:right;
+	background-color:transparent;
+	border:none;
+	color:white;
+	z-index:15;
+	font-size:2em;
+	display:block;
+}
+
+.side_nav_universal .pattern_one{
+	margin-top:0;
+	left:0;
+	width:80px;
+	height:80px;
+	border-bottom: solid 40px #1c3154;
+	border-left: solid 40px #1c3154;
+	border-right: solid 40px transparent;
+	border-top: solid 40px transparent;
+	display:block;
+}
+li{
+	list-style:none;
+	cursor:pointer;
+	padding-bottom:10px;
+}
+.tier_one_container{
+	padding-left:20px;
+	display:none;
+}
+.tier_one_container a{
+	padding-bottom:20px;
+	padding-left:0;
+	line-height:2em;
+}
+li a{
+	text-decoration:none;
+	color:white;
+}
+li a:hover{
+	text-decoration:none;
+	color:white;
+}
+
+li>ul{
+	display:none;
+	padding:10px;
+}
+.main{
+	margin-left:18%;
+	padding:30px;
+	transition:0.3s all ease;
+}

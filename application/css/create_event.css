@@ -1,0 +1,91 @@
+	.notification_large{
+		position:fixed;
+		top:0;
+		left:0;
+		background-color:rgba(51,51,51,0.3);
+		width:100%;
+		text-align:center;
+		height:100%;
+	}
+	.notification_large .notification_box{
+		position:relative;
+		background-color:#fff;
+		padding:30px;
+		width:100%;
+		top:30%;
+		box-shadow: 3px 4px 3px 4px #ddd;
+	}
+	.btn-confirm{
+		background-color:#2bf076;
+		font-family:bebasneue;
+		color:white;
+		font-size:1.5em;
+	}
+	.btn-delete{
+		background-color:red;
+		font-family:bebasneue;
+		color:white;
+		font-size:1.5em;
+	}
+	.btn-back{
+		background-color:#777;
+		font-family:bebasneue;
+		color:white;
+		font-size:1.5em;
+	}
+	.btn-x{
+		background-color:transparent;
+		border:none;
+		outline:0!important;
+	}
+	.btn-x:focus{
+		outline: 0!important;
+	}
+	
+	.alert_wrapper{
+		position:fixed;
+		top:20px;
+		left:50%;
+		z-index:5;
+	}
+	
+	.alert{
+		padding:10px 40px;
+		text-align:center;
+		box-shadow:2px 2px 2px 2px #777;
+		border-radius:4px;
+		font-size:1em;
+		display:none;
+	}
+	
+	.success_alert{
+		border:1px solid rgba(13, 0, 112, 1);
+		background-color:rgba(13, 0, 112, 1);
+		color:white;
+	}
+	
+	.danger_alert{
+		border:1px solid rgba(224, 0, 0, 1);
+		background-color:rgba(244, 0, 0, 1);
+		color:white;
+	}
+	
+	.text_area_wrapper{
+		position:relative;
+		padding:5px;
+		border:1px solid #ccc;
+		border-radius:4px;
+	}
+	
+	.text_area_wrapper textarea{
+		border:1px solid transparent!important;
+		outline:none!important;
+		resize:none;
+		padding:2px;
+	}
+	
+	.letter_counter{
+		position:absolute;
+		bottom:0;
+		right:0;
+	}
