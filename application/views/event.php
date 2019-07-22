@@ -1,8 +1,5 @@
 <?php
 	defined('BASEPATH') OR exit('No direct script access allowed');
-?>
-	<div class='main'>
-<?php
 	foreach($result_events as $event){
 		echo $event->id;
 		echo $event->description;

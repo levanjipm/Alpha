@@ -14,14 +14,14 @@
 	<hr>
 	<form name="eventForm" novalidate>
 		<label>Event date</label>
-		<input type='date' class='form-control' name='event_date'>
+		<input type='date' class='form-control' name='event_date' id='report_date'>
 		<label>Event name</label>
-		<input type="text" name="eventName" ng-model="eventName" class='form-control' ng-minlength="5" required>
+		<input type="text" name="eventName" ng-model="eventName" class='form-control' ng-minlength="5"  id='report_name' required>
 		<span ng-show="eventForm.eventName.$touched && eventForm.eventName.$invalid">Event name is not valid</span>
 		<br>
 		<label>Event description</label>
 		<div class='text_area_wrapper'>
-			<textarea name="report_description" ng-model="report_description"  ng-minlength="50" rows='20' cols='100' ng-trim="false" required></textarea>
+			<textarea name="report_description" ng-model="report_description"  ng-minlength="50" rows='20' cols='100' ng-trim="false" id='report_description' required></textarea>
 			<span class='letter_counter' id='letters'>{{ report_description.length }}</span>
 		</div>
 		<span ng-show="eventForm.report_description.$touched && eventForm.report_description.$invalid">Event description is not valid.</span>
@@ -47,7 +47,7 @@
 	});
 	$("#confirm_button").click(function(){
 		$.ajax({
-			url:"<?= base_url("index.php/Event/create_event_do") ?>",
+			url:"<?= site_url("Event/create_event_do") ?>",
 			data:{
 				event_date: $("#report_date").val(),
 				event_name: $("#report_name").val(),

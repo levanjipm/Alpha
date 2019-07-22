@@ -9,6 +9,7 @@
 			
 			//Load body//
 			$data['model'] = new class{};
+			$data['css_list'] = array('application/css/create_event.css');
 			$this->load->view('header',$data);
 			
 			$this->load->model('Event_model');

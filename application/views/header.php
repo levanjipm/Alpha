@@ -32,16 +32,24 @@
 			<span class='menu_list'>
 				<ul>
 					<li>
-						<a href='#'>
+						<a href='<?= site_url('Event'); ?>'>
 							Dashboard
 						</a>
 					</li>
 					<li>
 						<span class='tier_one'>Report<span>
 						<div class='tier_one_container'>
-							<a href='#'>Create report</a>
+							<a href='<?= site_url('Event/Create_event')?>'>Create report</a>
 							<br>
 							<a href='#'>Edit report</a>
+						</div>
+					</li>
+					<li>
+						<span class='tier_one'>Data master<span>
+						<div class='tier_one_container'>
+							<a href='<?= site_url('Weather')?>'>Weather</a>
+							<br>
+							<a href='#'>Man Power</a>
 						</div>
 					</li>
 				</ul>				
