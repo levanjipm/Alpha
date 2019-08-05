@@ -1,31 +1,59 @@
 <?php
 	defined("BASEPATH") OR exit("No direct script access allowed");
 ?>
-	<div class="alert_wrapper" ng-app="ngAnimate">
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular-sanitize.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/textAngular/1.1.2/textAngular.min.js'></script>
+<script>
+angular.module("textAngularTest", ['textAngular']);
+function wysiwygeditor($scope) {
+	$scope.orightml = '';
+	$scope.htmlcontent = $scope.orightml;
+};
+</script>
+<style>
+	.box_upload{
+		width:100px;
+		height:100px;
+		border:1px solid #ccc;
+	}
+	.box_upload_wrapper{
+		padding:10px;
+	}
+</style>
+	<!--<div class="alert_wrapper">
 		<div class="alert success_alert" id="record_success">
 			Successfully add record.
 		</div>
 		<div class="alert danger_alert" id="record_failed">
 			Operation failed.
 		</div>
-	</div>
+	</div>-->
 	<h2 style="font-family:bebasneue">Report</h2>
 	<p>Create report</p>
 	<hr>
-	<form name="eventForm" novalidate>
-		<label>Event date</label>
-		<input type='date' class='form-control' name='event_date' id='report_date'>
-		<label>Event name</label>
-		<input type="text" name="eventName" ng-model="eventName" class='form-control' ng-minlength="5"  id='report_name' required>
-		<span ng-show="eventForm.eventName.$touched && eventForm.eventName.$invalid">Event name is not valid</span>
-		<br>
-		<label>Event description</label>
-		<div class='text_area_wrapper'>
-			<textarea name="report_description" ng-model="report_description"  ng-minlength="50" rows='20' cols='100' ng-trim="false" id='report_description' required></textarea>
-			<span class='letter_counter' id='letters'>{{ report_description.length }}</span>
+	<div class='row'>
+		<div class='box_upload_wrapper'>
+			<input type="file" id="image_upload_1" style="display:none"/>
+			<div class='box_upload' id='box_upload_1'></div>
 		</div>
-		<span ng-show="eventForm.report_description.$touched && eventForm.report_description.$invalid">Event description is not valid.</span>
-	</form>
+		<div class='box_upload_wrapper'>
+			<input type="file" id="image_upload_2" style="display:none"/>
+			<div class='box_upload' id='box_upload_2'></div>
+		</div>
+		<div class='box_upload_wrapper'>
+			<input type="file" id="image_upload_3" style="display:none"/>
+			<div class='box_upload' id='box_upload_3'></div>
+		</div>
+	</div>
+	<script>
+		$('#box_upload_1').click(function(){ $('#image_upload_1').trigger('click'); });
+	</script>
+	<br>
+	<div ng-app="textAngularTest" ng-controller="wysiwygeditor" class="app">
+		<div text-angular="text-angular" name="htmlcontent" ng-model="htmlcontent"></div>
+	</div>
+	<br>
 	<hr>
 	<button type="button" class="btn btn-default" id="submit_create_event_button" ng-disabled="create_event_form.report.date">Submit</button>
 </div>

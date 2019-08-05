@@ -5,8 +5,8 @@
 <head>
 	<script src='<?= base_url(); ?>application/js/jquery.js' type='text/javascript'></script>	
 	<script src='<?= base_url(); ?>application/js/angular.js' type='text/javascript'></script>
+	<script src='<?= base_url(); ?>application/js/ngmask.js' type='text/javascript'>angular.module('yourApp', ['ngMask']);</script>
 	<script src='<?= base_url(); ?>application/js/bootstrap-ui.js' type='text/javascript'></script>
-	<script src='<?= base_url(); ?>application/js/bootstrap.min.js' type='text/javascript'></script>
 	<link rel='stylesheet' href='<?= base_url(); ?>application/css/bootstrap.413.css' type='text/css'>
 	<link rel='stylesheet' href='<?= base_url(); ?>application/css/bootstrap.337.css' type='text/css'>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -17,10 +17,15 @@
 	<link rel='stylesheet' href='<?= base_url() . $css ?>'>
 <?php
 	}
+	foreach($js_list as $js){
+?>
+	<script src='<?= base_url() . $js ?>'></script>
+<?php
+	}
 ?>
 </head>
 <html>
-	<body ng-app=''>
+	<body>
 		<div class='side_nav_universal' id='large_side_nav'>
 			<button type='button' class='btn-transparent' title='Hide Side Navigation' id='hide_side_navigation_button'>
 				-
@@ -47,9 +52,21 @@
 					<li>
 						<span class='tier_one'>Data master<span>
 						<div class='tier_one_container'>
-							<a href='<?= site_url('Weather')?>'>Weather</a>
+							<a href='<?= site_url('Weather')?>'>Data cuaca</a>
 							<br>
-							<a href='#'>Man Power</a>
+							<a href='Client'>Data klien</a>
+							<br>
+							<a href='#'>Data SDM</a>
+							<br>
+						</div>
+					</li>
+					<li>
+						<span class='tier_one'>Project<span>
+						<div class='tier_one_container'>
+							<a href='<?= site_url('Project') ?>'>Add project</a>
+							<br>
+							<a href='#'>View progress</a>
+							<br>
 						</div>
 					</li>
 				</ul>				

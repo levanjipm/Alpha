@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 22, 2019 at 04:15 PM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.0.25
+-- Generation Time: Aug 05, 2019 at 01:42 PM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,21 @@ SET time_zone = "+00:00";
 --
 -- Database: `alpha`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `code_project`
+--
+
+CREATE TABLE `code_project` (
+  `id` int(255) NOT NULL,
+  `created_by` int(10) NOT NULL,
+  `client_id` int(255) NOT NULL,
+  `document_name` varchar(50) NOT NULL,
+  `start_date` date NOT NULL,
+  `created_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -47,6 +62,32 @@ INSERT INTO `event` (`id`, `name`, `event_date`, `description`, `created_by`, `c
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `mst_client`
+--
+
+CREATE TABLE `mst_client` (
+  `id` int(255) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `address` varchar(100) NOT NULL,
+  `city` varchar(100) NOT NULL,
+  `pic` varchar(50) NOT NULL,
+  `phone` varchar(50) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `npwp` varchar(25) NOT NULL,
+  `created_by` int(10) NOT NULL,
+  `created_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mst_client`
+--
+
+INSERT INTO `mst_client` (`id`, `name`, `address`, `city`, `pic`, `phone`, `email`, `npwp`, `created_by`, `created_date`) VALUES
+(1, 'CV Agung Elektrindo', 'Jalan jamuju no. 18', 'Bandung', 'Daniel Tri', '(022) 7202747', '', '', 1, '2019-07-29');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `mst_weather`
 --
 
@@ -63,7 +104,7 @@ CREATE TABLE `mst_weather` (
 --
 
 INSERT INTO `mst_weather` (`id`, `name`, `created_by`, `created_date`, `is_deleted`) VALUES
-(1, 'Bermatahari', 1, '2019-07-22', 0),
+(1, 'Daniel', 1, '2019-07-22', 0),
 (2, 'Cerah banget', 1, '2019-07-22', 0),
 (3, 'Berawan', 1, '2019-07-22', 0);
 
@@ -93,9 +134,21 @@ INSERT INTO `user` (`id`, `first_name`, `last_name`, `username`) VALUES
 --
 
 --
+-- Indexes for table `code_project`
+--
+ALTER TABLE `code_project`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `event`
 --
 ALTER TABLE `event`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mst_client`
+--
+ALTER TABLE `mst_client`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -115,9 +168,21 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `code_project`
+--
+ALTER TABLE `code_project`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `event`
 --
 ALTER TABLE `event`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `mst_client`
+--
+ALTER TABLE `mst_client`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --

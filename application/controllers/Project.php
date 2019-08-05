@@ -1,48 +1,47 @@
 <?php
 	defined('BASEPATH') OR exit('No direct script access allowed');
 	
-	class Weather extends CI_Controller {
+	class Project extends CI_Controller {
 		public function index()
 		{
+			//Load Header//
+			$this->load->helper('url');
 			
 			//Load body//
-			$data['js_list'] = array();
+			$data['model'] = new class{};	
 			$data['css_list'] = array();
-			$data['model'] = new class{};
 			$this->load->view('header',$data);
 			
-			$this->load->model('Weather_model');
-			$items = $this->Weather_model->show_all();
+			$this->load->model('Project_model');
+			$items = $this->Project_model->show_incomplete_project();
 			
-			$data['result_weather'] = $items;
-			$this->load->view('weather', $data);
+			$data['result_model'] = $items;
+			$this->load->view('project', $data);
 		}
 		
 		public function create_weather()
 		{
 			//Load header//
 			$data_header['css_list'] = array();
-			$data_header['js_list'] = array();
 			$this->load->view('header',$data_header);
 			
 			$data['model'] = new class{};
-			$this->load->view('create_weather', $data);
+			$this->load->view('create_project', $data);
 		}
 		
-		public function create_weather_do()
+		public function create_project_do()
 		{
-			$this->load->model('Weather_model');
-			$item = $this->Weather_model->insert_from_post();
+			$this->load->model('Project_model');
+			$item = $this->Project_model->insert_from_post();
 			
 			$data['text_result'] = $item;
 			echo $item;
 		}
 		
-		public function edit_weather($id)
+		public function edit_project($id)
 		{
 			//Load header//
 			$data_header['css_list'] = array();
-			$data_header['js_list'] = array();
 			$this->load->view('header',$data_header);
 			
 			$this->load->model('Weather_model');

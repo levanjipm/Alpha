@@ -23,6 +23,7 @@
 		{
 			//Load header//
 			$data_header['css_list'] = array('application/css/create_event.css');
+			$data_header['js_list'] = array();
 			$this->load->view('header',$data_header);
 			
 			if ($this->input->method() == "post") $this->create_event_do();
