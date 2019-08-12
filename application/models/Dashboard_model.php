@@ -1,7 +1,7 @@
 <?php
 	defined('BASEPATH') OR exit('No direct script access allowed');
 	
-	class Dashboard_model extends CI_Controller {	
+	class Dashboard_model extends CI_Model {	
 		private $table_user = 'user';
 		// constructor
 		public $id;
@@ -12,6 +12,12 @@
 		{
 			parent::__construct();
 		}
+		public function profile_information($id)
+		{
+			$this->db->select('*');
+			$this->db->where('id', $id);
+		}
+		
 		
 		public function get_new_stub_from_db($db)
 		{

@@ -1,15 +1,13 @@
 <?php
 	defined('BASEPATH') OR exit('No direct script access allowed');
 	
-	class Index extends CI_Controller {
+	class Dashboard extends CI_Controller {
 		public function index()
-		{
+		{			
+			$data['session'] = $this->session->userdata('user_id');
 			$this->load->model('Dashboard_model');
-			$this->load->model('Item_model');
-			$items = $this->Dashboard_model->show_all_user();
-			
-			$data['result_user'] = $items;
-			$this->load->view('dashboard', $data);
+			$this->load->Dashboard_model->profile_information();
+			$this->load->view('header',$data);
 		}
 	}
 

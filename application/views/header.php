@@ -31,7 +31,7 @@
 				-
 			</button>
 			<span class='pattern_one'>
-				<h3>Daniel</h3>
+				<h3><?= $this->session->userdata('user_id') ?></h3>
 			</span>
 			<hr style='border-bottom:1px solid #eee;width:60%'>
 			<span class='menu_list'>
