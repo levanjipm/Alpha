@@ -9,6 +9,7 @@
 		
 		public function log_in()
 		{
+			$this->load->library('session');
 			$this->load->model('Login_model');
 			$result = $this->Login_model->check_user_password($this->input->post('username'),$this->input->post('password'));
 			if(!$result){

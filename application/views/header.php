@@ -4,9 +4,6 @@
 <!DOCTYPE html>
 <head>
 	<script src='<?= base_url(); ?>application/js/jquery.js' type='text/javascript'></script>	
-	<script src='<?= base_url(); ?>application/js/angular.js' type='text/javascript'></script>
-	<script src='<?= base_url(); ?>application/js/ngmask.js' type='text/javascript'>angular.module('yourApp', ['ngMask']);</script>
-	<script src='<?= base_url(); ?>application/js/bootstrap-ui.js' type='text/javascript'></script>
 	<link rel='stylesheet' href='<?= base_url(); ?>application/css/bootstrap.413.css' type='text/css'>
 	<link rel='stylesheet' href='<?= base_url(); ?>application/css/bootstrap.337.css' type='text/css'>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -22,6 +19,9 @@
 	<script src='<?= base_url() . $js ?>'></script>
 <?php
 	}
+	$user_id	= $profile_information->id;
+	$first_name = $profile_information->first_name;
+	$last_name 	= $profile_information->last_name;
 ?>
 </head>
 <html>
@@ -31,20 +31,22 @@
 				-
 			</button>
 			<span class='pattern_one'>
-				<h3><?= $this->session->userdata('user_id') ?></h3>
+				<a href='<?= site_url("Users/Edit_user/" . $user_id) ?>' style='text-decoration:none;color:white'>
+					<h4><?= $first_name . " " . $last_name ?></h4>
+				</a>
 			</span>
 			<hr style='border-bottom:1px solid #eee;width:60%'>
 			<span class='menu_list'>
 				<ul>
 					<li>
-						<a href='<?= site_url('Event'); ?>'>
+						<a href='#'>
 							Dashboard
 						</a>
 					</li>
 					<li>
 						<span class='tier_one'>Report<span>
 						<div class='tier_one_container'>
-							<a href='<?= site_url('Event/Create_event')?>'>Create report</a>
+							<a href='<?= site_url('Report/Create_report')?>'>Create report</a>
 							<br>
 							<a href='#'>Edit report</a>
 						</div>

@@ -1,7 +1,7 @@
 <?php
 	defined('BASEPATH') OR exit('No direct script access allowed');
 	
-	class Event_model extends CI_Controller {	
+	class Report_model extends CI_Model {	
 		private $table_event = 'event';
 		// constructor
 		public $id;
@@ -33,7 +33,7 @@
 		
 		public function get_new_stub_from_db($db_item)
 		{
-			$stub = new Event_model();
+			$stub = new Report_model();
 			
 			$stub->id				= $db_item->id;
 			$stub->name				= $db_item->name;
@@ -66,8 +66,7 @@
 		}
 		public function insert_from_post()
 		{
-			$this->load->model('Event_model');
-			// $cur_event = $this->Event_model->get_by_account_id($this->session->userdata('id'));
+			$this->load->model('Report_model');
 			
 			$this->id				= "";
 			$this->name				= $this->input->post('event_name');

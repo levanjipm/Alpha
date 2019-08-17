@@ -1,8 +1,9 @@
 <?php
 	defined('BASEPATH') OR exit('No direct script access allowed');
 	
-	class Project_model extends CI_Controller {	
+	class Project_model extends CI_Model {	
 		private $table_project = 'code_project';
+		private $table_client = 'mst_client';
 		// constructor
 		public $id;
 		public $name;

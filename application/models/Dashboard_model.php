@@ -3,7 +3,6 @@
 	
 	class Dashboard_model extends CI_Model {	
 		private $table_user = 'user';
-		// constructor
 		public $id;
 		public $first_name;
 		public $last_name;
@@ -12,12 +11,25 @@
 		{
 			parent::__construct();
 		}
+		
 		public function profile_information($id)
 		{
-			$this->db->select('*');
 			$this->db->where('id', $id);
+			$query 	= $this->db->get($this->table_user);
+			$item 	= $query->row();
+			
+			return $this->get_stub_from_db($item);
 		}
 		
+		public function get_stub_from_db($db_item)
+		{
+			$this->id					= $db_item->id;
+			$this->first_name			= $db_item->first_name;
+			$this->last_name			= $db_item->last_name;
+			$this->username				= $db_item->username;
+			
+			return $this;
+		}
 		
 		public function get_new_stub_from_db($db)
 		{

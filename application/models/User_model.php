@@ -1,18 +1,14 @@
 <?php
 	defined('BASEPATH') OR exit('No direct script access allowed');
 	
-	class Client_model extends CI_Model {
-		private $table_client = 'mst_client';
-		
+	class User_model extends CI_Model {
+		private $table_user = 'user';
 		public $id;
-		public $name;
-		public $address;
-		public $city;
-		public $npwp;
-		public $phone;
-		public $pic;
-		public $created_by;
-		public $created_date;
+		public $first_name;
+		public $last_name;
+		public $username;
+		public $is_active;
+		public $username;
 		
 		public function __construct()
 		{
@@ -68,7 +64,7 @@
 			return $stub;
 		}
 		
-		public function map_list($clients)
+		public function map_list($users)
 		{
 			$result = array();
 			foreach ($clients as $client)
@@ -80,45 +76,14 @@
 		
 		public function show_all()
 		{
-			$query 	= $this->db->get($this->table_client);
-			$clients = $query->result();
+			$query 	= $this->db->get($this->table_user);
+			$users = $query->result();
 			
-			$items = $this->map_list($clients);
+			$items = $this->map_list($users);
 			
 			return $items;
 			
 		}
-		public function insert_from_post()
-		{
-			$this->load->model('Client_model');
-			$this->db->select('*');
-			$this->db->from($this->table_client);
-			$this->db->where('name =', $this->input->post('client_name'));
-			$this->db->or_where('city =', $this->input->post('client_city'));
-			$item = $this->db->count_all_results();
-			echo $item;
-			
-			if($item == 0){
-				$this->id					= '';
-				$this->name					= $this->input->post('client_name');
-				$this->address				= $this->input->post('client_address');
-				$this->city					= $this->input->post('client_city');
-				$this->pic					= $this->input->post('client_pic');
-				$this->phone				= $this->input->post('client_phone');
-				$this->npwp					= $this->input->post('client_npwp');
-				$this->created_by			= 1;
-				$this->created_date			= date('Y-m-d');
-				$db_item 					= $this->get_db_from_stub($this);
-				$db_result 					= $this->db->insert($this->table_client, $db_item);
-				if($db_result){
-					$text_result = 1;
-				} else {
-					$text_result = 0;
-				}
-			} else {
-				$text_result = 0;
-			}
-			return $text_result;
 		}
 		public function show_by_id($id)
 		{
@@ -128,16 +93,6 @@
 			$item = $query->row();
 			
 			return ($item !== null) ? $this->get_stub_from_db($item) : null;
-		}
-		
-		public function update_from_post($id)
-		{
-			$where['id']		 = $id;
-			$this->name			= $this->input->post('weather_name');
-			
-			$this->db->where($where);
-			$this->db->set('name', $this->name);
-			$this->db->update($this->table_client);
 		}
 	}
 

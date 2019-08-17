@@ -1,3 +1,2 @@
 <div class='row'>
-	Hello
 </div>

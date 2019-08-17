@@ -3,8 +3,7 @@
 ?>
 	<h2 style='font-family:bebasneue'>Project</h2>
 	<hr>
-	<a href='<?= site_url('Client/create_client') ?>' class='btn btn-default'>Add project</a>
+	<a href='<?= site_url('Project/create_project') ?>' class='btn btn-default'>Add project</a>
 	<hr>
-	<?= $result_model ?>
 	</div>
 </body>
