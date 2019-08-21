@@ -40,6 +40,7 @@
 					<td><?= $quantity . " " . $unit?></td>
 				</tr>
 <?php
+		next($prelimiary_task_array);
 	}
 ?>
 			</tbody>
@@ -70,10 +71,10 @@
 <?php
 	foreach($bored_pile_array as $bored_pile){
 		$key 					= key($bored_pile_array);
-		$main_diameter			= $main_diameter[$key];
-		$main_coordinate_x		= $main_coordinate_x[$key];
-		$main_coordinate_y		= $main_coordinate_y[$key];
-		$main_depth				= $main_depth[$key];
+		$main_diameter			= $main_diameter_array[$key];
+		$main_coordinate_x		= $main_coordinate_x_array[$key];
+		$main_coordinate_y		= $main_coordinate_y_array[$key];
+		$main_depth				= $main_depth_array[$key];
 ?>
 				<tr>
 					<td><?= $bored_pile ?></td>
@@ -83,6 +84,7 @@
 					<td><?= $main_depth . " meter" ?></td>
 				</tr>
 <?php
+		next($bored_pile_array);
 	}
 ?>
 			</tbody>
@@ -96,8 +98,7 @@
 ?>
 <div class='row'>
 	<div class='col-xs-12'>
-		<h4 style='font-family:bebasneue'>Pekerjaan utama</h4>
-		<p>Pengeboran</p>
+		<h4 style='font-family:bebasneue'>Pekerjaan lain</h4>
 		<table class='table table-bordered'>
 			<tr>
 				<th style='width:60%'>Pekerjaan</th>
@@ -124,3 +125,10 @@
 <?php
 	}
 ?>
+<div class='row'>
+	<div class='col-xs-12'>
+		<button type='button' class='btn btn-default'>
+			Submit
+		</button>
+	</div>
+</div>

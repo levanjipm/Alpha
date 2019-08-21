@@ -67,15 +67,15 @@
 				$data['preliminary_unit']			= $_POST['preliminary_unit'];
 			}
 			
-			if(!empty($_POST['bored_pile_array'])){
+			if(!empty($_POST['bored_pile_name'])){
 				$data['bored_pile_array']			= $_POST['bored_pile_name'];
-				$data['main_diameter']				= $_POST['main_diameter'];	
-				$data['main_coordinate_x']			= $_POST['main_coordinate_x'];	
-				$data['main_coordinate_y']			= $_POST['main_coordinate_y'];	
-				$data['main_depth']					= $_POST['main_depth'];
+				$data['main_diameter_array']		= $_POST['main_diameter'];	
+				$data['main_coordinate_x_array']	= $_POST['main_coordinate_x'];	
+				$data['main_coordinate_y_array']	= $_POST['main_coordinate_y'];	
+				$data['main_depth_array']			= $_POST['main_depth'];
 			}
 			
-			if(!empty($_POST['other_task_array'])){
+			if(!empty($_POST['other_task'])){
 				$data['other_task_array']			= $_POST['other_task'];
 				$data['other_task_quantity']		= $_POST['other_task_quantity'];	
 				$data['other_unit']					= $_POST['other_unit'];			
