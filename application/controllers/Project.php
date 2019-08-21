@@ -83,6 +83,27 @@
 			
 			$this->load->view('create_project_validate',$data);
 		}
+		
+		public function create_project_input()
+		{
+			$this->load->model('Project_model');
+			//$this->Project_model->insert_from_post();
+			print_r($_POST);
+			if(!empty($_POST['preliminary_task'])){
+				foreach($pre_task as $key => $task){
+					$key
+				// $prelimiary_task_array		= $_POST['preliminary_task']['task'];
+				// $preliminary_task_quantity	= $_POST['preliminary_task']['quantity'];
+				// $preliminary_unit			= $_POST['preliminary_unit'];
+			// }
+			
+			// $this->load->model('Preliminary_project_model');
+			// foreach($prelimiary_task_array as $task){
+				
+			// echo '<br>';
+			// $data['data_general']					= $this->session->userdata('project_general');
+			// print_r($data['data_general']);
+		}
 	}
 
 ?>

@@ -17,6 +17,7 @@
 		<p><?= $data_general['ProjectCity'] ?></p>
 	</div>
 </div>
+<form method='POST' action='create_project_input' id='project_detail_form'>
 <?php
 	if(count($prelimiary_task_array) > 0 &&	!empty($prelimiary_task_array)){
 ?>
@@ -36,8 +37,15 @@
 		$unit		= $preliminary_unit[$key];
 ?>
 				<tr>
-					<td><?= $pre_task ?></td>
-					<td><?= $quantity . " " . $unit?></td>
+					<td>
+						<?= $pre_task ?>
+						<input type='hidden' value='<?= $pre_task ?>' name='prelimiary_task_array[<?= $key ?>]'>
+					</td>
+					<td>
+						<?= $quantity . " " . $unit?>
+						<input type='hidden' value='<?= $quantity ?>' name='preliminary_task_quantity[<?= $key ?>]'>
+						<input type='hidden' value='<?= $unit ?>' name='preliminary_unit[<?= $key ?>]'>
+					</td>
 				</tr>
 <?php
 		next($prelimiary_task_array);
@@ -77,11 +85,26 @@
 		$main_depth				= $main_depth_array[$key];
 ?>
 				<tr>
-					<td><?= $bored_pile ?></td>
-					<td><?= $main_diameter . " sentimeter"?></td>
-					<td><?= $main_coordinate_x ?></td>
-					<td><?= $main_coordinate_y ?></td>
-					<td><?= $main_depth . " meter" ?></td>
+					<td>
+						<?= $bored_pile ?>
+						<input type='hidden' value='<?= $bored_pile ?>' name='bored_pile[<?= $key ?>]'>
+					</td>
+					<td>
+						<?= $main_diameter . " sentimeter"?>
+						<input type='hidden' value='<?= $main_diameter ?>' name='main_diameter_array[<?= $key ?>]'>
+					</td>
+					<td>
+						<?= $main_coordinate_x ?>
+						<input type='hidden' value='<?= $main_coordinate_x ?>' name='main_coordinate_x[<?= $key ?>]'>
+					</td>
+					<td>
+						<?= $main_coordinate_y ?>
+						<input type='hidden' value='<?= $main_coordinate_y ?>' name='main_coordinate_y[<?= $key ?>]'>
+					</td>
+					<td>
+						<?= $main_depth . " meter" ?>
+						<input type='hidden' value='<?= $main_depth ?>' name='main_depth[<?= $key ?>]'>
+					</td>
 				</tr>
 <?php
 		next($bored_pile_array);
@@ -112,8 +135,15 @@
 		$unit		= $other_unit[$key];
 ?>
 				<tr>
-					<td><?= $other_task ?></td>
-					<td><?= $quantity . " " . $unit?></td>
+					<td>
+						<?= $other_task ?>
+						<input type='hidden' value='<?= $other_task ?>' name='other_task_array[<?= $key ?>]'>
+					</td>
+					<td>
+						<?= $quantity . " " . $unit?>
+						<input type='hidden' value='<?= $quantity ?>' name='other_task_quantity[<?= $key ?>]'>
+						<input type='hidden' value='<?= $unit ?>' name='other_unit[<?= $key ?>]'>
+					</td>
 				</tr>
 <?php
 	}
@@ -127,8 +157,9 @@
 ?>
 <div class='row'>
 	<div class='col-xs-12'>
-		<button type='button' class='btn btn-default'>
+		<button type='submit' class='btn btn-default'>
 			Submit
 		</button>
 	</div>
 </div>
+</form>
