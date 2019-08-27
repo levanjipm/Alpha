@@ -116,7 +116,7 @@
 	$('#add_item_button').click(function(){
 		Number_of_tr_inside = $("#Tasks tr").length;
 		Number_of_tr_inside++;
-		$('#Tasks').append('<tr id="preliminary_task_tr_' + Number_of_tr_inside + '"><td><input type="text" class="form_rectangular" name="preliminary_task[' + Number_of_tr_inside + ']" id="preliminary_task-' + Number_of_tr_inside + '"></td><td><input type="number" class="form_rectangular" name="preliminary_task_quantity[' + Number_of_tr_inside + ']"></td><td><select class="form_rectangular" name="preliminary_unit[' + Number_of_tr_inside + ']"><option value="Lot">Lot</option><option value="Pcs">Pcs</option><option value="Meter">Meter</option></select></td><td><button type="button" class="btn btn-danger" onclick="delete_preliminary_task(' + Number_of_tr_inside + ')">X</button></td></tr>');
+		$('#Tasks').append('<tr id="preliminary_task_tr_' + Number_of_tr_inside + '"><td><input type="text" class="form_rectangular" name="preliminary_task[' + Number_of_tr_inside + ']" id="preliminary_task-' + Number_of_tr_inside + '"></td><td><input type="number" class="form_rectangular" name="preliminary_task_quantity[' + Number_of_tr_inside + ']"></td><td><select class="form_rectangular" name="preliminary_unit[' + Number_of_tr_inside + ']"><option value="Lot">Lot</option><option value="Pcs">Pcs</option><option value="Meter">Meter</option><option value="Meter persegi">Meter persegi</option><option value="Meter kubik">Meter kubik</option></select></td><td><button type="button" class="btn btn-danger" onclick="delete_preliminary_task(' + Number_of_tr_inside + ')">X</button></td></tr>');
 	});
 	
 	function delete_preliminary_task(n){
@@ -139,7 +139,7 @@
 	$('#add_item_button_other').click(function(){
 		Number_of_tr_inside = $("#Other_tasks tr").length;
 		Number_of_tr_inside++;
-		$('#Other_tasks').append('<tr id="other_task_tr_' + Number_of_tr_inside_other + '"><td><input type="text" class="form_rectangular" name="other_task[' + Number_of_tr_inside_other + ']" id="other_task-' + Number_of_tr_inside_other + '"></td><td><input type="number" class="form_rectangular" name="other_task_quantity[' + Number_of_tr_inside_other + ']"></td><td><select class="form_rectangular" name="other_unit[' + Number_of_tr_inside_other + ']"><option value="Lot">Lot</option><option value="Pcs">Pcs</option><option value="Meter">Meter</option></select></td><td><button type="button" class="btn btn-danger" onclick="delete_other_task(' + Number_of_tr_inside_other + ')">X</button></td></tr>');
+		$('#Other_tasks').append('<tr id="other_task_tr_' + Number_of_tr_inside_other + '"><td><input type="text" class="form_rectangular" name="other_task[' + Number_of_tr_inside_other + ']" id="other_task-' + Number_of_tr_inside_other + '"></td><td><input type="number" class="form_rectangular" name="other_task_quantity[' + Number_of_tr_inside_other + ']"></td><td><select class="form_rectangular" name="other_unit[' + Number_of_tr_inside_other + ']"><option value="Lot">Lot</option><option value="Pcs">Pcs</option><option value="Meter">Meter</option><option value="Meter persegi">Meter persegi</option><option value="Meter kubik">Meter kubik</option></select></td><td><button type="button" class="btn btn-danger" onclick="delete_other_task(' + Number_of_tr_inside_other + ')">X</button></td></tr>');
 	});
 	
 	function delete_other_task(n){
