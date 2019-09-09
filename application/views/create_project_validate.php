@@ -18,6 +18,19 @@
 			<p><?= $data_general['ProjectCity'] ?></p>
 		</div>
 	</div>
+<<<<<<< HEAD
+=======
+	<div class='col-sm-6 col-xs-12' id='project_information' style='line-height:0.8;border-right:2px solid #333'>
+		<h3 style='font-family:bebasneue'>Informasi Proyek</h3>
+		<label>Dokumen Proyek</label>
+		<p><?= $data_general['ProjectDocument'] ?></p>
+		<label>Alamat Proyek</label>
+		<p><?= $data_general['ProjectAddress'] ?></p>
+		<p><?= $data_general['ProjectCity'] ?></p>
+	</div>
+</div>
+<form method='POST' action='create_project_input' id='project_detail_form'>
+>>>>>>> 9550361dcf84300aa3b195751f9262310d074df1
 <?php
 	if(count($prelimiary_task_array) > 0 &&	!empty($prelimiary_task_array)){
 ?>
@@ -26,8 +39,20 @@
 			<h4 style='font-family:bebasneue'>Pekerjaan <i>preliminary</i></h4>
 			<table class='table table-bordered'>
 				<tr>
+<<<<<<< HEAD
 					<th style='width:60%'>Pekerjaan</th>
 					<th style='width:40%'>Kuantum</th>
+=======
+					<td>
+						<?= $pre_task ?>
+						<input type='hidden' value='<?= $pre_task ?>' name='prelimiary_task_array[<?= $key ?>]'>
+					</td>
+					<td>
+						<?= $quantity . " " . $unit?>
+						<input type='hidden' value='<?= $quantity ?>' name='preliminary_task_quantity[<?= $key ?>]'>
+						<input type='hidden' value='<?= $unit ?>' name='preliminary_unit[<?= $key ?>]'>
+					</td>
+>>>>>>> 9550361dcf84300aa3b195751f9262310d074df1
 				</tr>
 				<tbody id='Tasks'>
 <?php
@@ -80,6 +105,7 @@
 		$main_coordinate_y		= $main_coordinate_y_array[$key];
 		$main_depth				= $main_depth_array[$key];
 ?>
+<<<<<<< HEAD
 					<tr>
 						<td>
 							<?= $bored_pile ?>
@@ -102,6 +128,30 @@
 							<input type='hidden' value='<?= $main_depth ?>' name='bored_pile_array[<?= $i ?>][main_depth]'>
 						</td>
 					</tr>
+=======
+				<tr>
+					<td>
+						<?= $bored_pile ?>
+						<input type='hidden' value='<?= $bored_pile ?>' name='bored_pile[<?= $key ?>]'>
+					</td>
+					<td>
+						<?= $main_diameter . " sentimeter"?>
+						<input type='hidden' value='<?= $main_diameter ?>' name='main_diameter_array[<?= $key ?>]'>
+					</td>
+					<td>
+						<?= $main_coordinate_x ?>
+						<input type='hidden' value='<?= $main_coordinate_x ?>' name='main_coordinate_x[<?= $key ?>]'>
+					</td>
+					<td>
+						<?= $main_coordinate_y ?>
+						<input type='hidden' value='<?= $main_coordinate_y ?>' name='main_coordinate_y[<?= $key ?>]'>
+					</td>
+					<td>
+						<?= $main_depth . " meter" ?>
+						<input type='hidden' value='<?= $main_depth ?>' name='main_depth[<?= $key ?>]'>
+					</td>
+				</tr>
+>>>>>>> 9550361dcf84300aa3b195751f9262310d074df1
 <?php
 		$i++;
 		next($bored_pile_array);
@@ -132,10 +182,24 @@
 		$quantity	= $other_task_quantity[$key];
 		$unit		= $other_unit[$key];
 ?>
+<<<<<<< HEAD
 					<tr>
 						<td><?= $other_task ?></td>
 						<td><?= $quantity . " " . $unit?></td>
 					</tr>
+=======
+				<tr>
+					<td>
+						<?= $other_task ?>
+						<input type='hidden' value='<?= $other_task ?>' name='other_task_array[<?= $key ?>]'>
+					</td>
+					<td>
+						<?= $quantity . " " . $unit?>
+						<input type='hidden' value='<?= $quantity ?>' name='other_task_quantity[<?= $key ?>]'>
+						<input type='hidden' value='<?= $unit ?>' name='other_unit[<?= $key ?>]'>
+					</td>
+				</tr>
+>>>>>>> 9550361dcf84300aa3b195751f9262310d074df1
 <?php
 		$i++;
 		next($other_tak_array);
@@ -148,6 +212,7 @@
 <?php
 	}
 ?>
+<<<<<<< HEAD
 	<div class='row'>
 		<div class='col-xs-12'>
 			<button type='submit' class='btn btn-default'>
@@ -155,4 +220,13 @@
 			</button>
 		</div>
 	</div>
+=======
+<div class='row'>
+	<div class='col-xs-12'>
+		<button type='submit' class='btn btn-default'>
+			Submit
+		</button>
+	</div>
+</div>
+>>>>>>> 9550361dcf84300aa3b195751f9262310d074df1
 </form>

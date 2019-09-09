@@ -3,14 +3,13 @@
 	
 	class Project_model extends CI_Model {	
 		private $table_project = 'code_project';
-		private $table_client = 'mst_client';
 		// constructor
 		public $id;
-		public $name;
 		public $start_date;
 		public $document_name;
 		public $created_by;
 		public $created_date;
+		public $client_id;
 		
 		public function __construct()
 		{
@@ -25,6 +24,7 @@
 			$this->document_name		= $db_item->document_name;
 			$this->created_by			= $db_item->created_by;
 			$this->created_date			= $db_item->created_date;
+			$this->client_id			= $db_item->client_id;
 			
 			return $this;
 		}
@@ -34,9 +34,9 @@
 			$db_item = new class{};
 			
 			$db_item->id				= $this->id;
-			$db_item->name				= $this->name;
 			$db_item->start_date		= $this->start_date;
 			$db_item->document_name		= $this->document_name;
+			$db_item->client_id			= $this->client_id;
 			$db_item->created_by		= $this->created_by;
 			$db_item->created_date		= $this->created_date;
 			
@@ -50,6 +50,7 @@
 			$stub->id					= $db_item->id;
 			$stub->name					= $db_item->name;
 			$stub->start_date			= $db_item->start_date;
+			$stub->client_id			= $db_item->client_id;
 			$stub->document_name		= $db_item->document_name;
 			$stub->created_by			= $db_item->created_by;
 			$stub->created_date			= $db_item->created_date;
@@ -88,22 +89,17 @@
 		}
 		public function insert_from_post()
 		{
-			$this->load->model('Weather_model');
-			// $cur_event = $this->Event_model->get_by_account_id($this->session->userdata('id'));
-			
+			print_r($this->session->userdata('project_general'));
+			$project_general			= $this->session->userdata('project_general');
 			$this->id				= "";
-			$this->name				= $this->input->post('weather_name');
-			$this->created_by		= 1;
+			$this->created_by		= $this->session->userdata('user_id');
+			$this->client_id		= $project_general['client'];
+			$this->document_name	= $project_general['ProjectDocument'];
+			$this->start_date		= $project_general['Projectdate'];
 			$this->created_date		= date('Y-m-d');
 		
-			$db_item 				= $this->get_db_from_stub($this);
+			$db_item 				= $this->get_db_from_stub();
 			$db_result 				= $this->db->insert($this->table_project, $db_item);
-			if($db_result){
-				$text_result = 1;
-			} else {
-				$text_result = 0;
-			}
-			return $text_result;
 		}
 		public function show_by_id($id)
 		{
