@@ -1,7 +1,8 @@
 <?php
 	defined('BASEPATH') OR exit('No direct script access allowed');
 	
-	class Project_model extends CI_Model {
+	class Preliminary_project_model extends CI_Model {
+		private $table_project = 'preliminary_task';
 		public $id;
 		public $name;
 		public $quantity;
@@ -21,16 +22,22 @@
 			return $db_item;
 		}
 		
-		public function insert_from_post()
-		{
-			$this->id				= "";
-			$this->name				= $this->session->userdata('user_id');
-			$this->quantity			= $this->input->post('client');
-			$this->unit				= $this->input->post('ProjectDocument');
-			$this->project_id		= $this->input->post('Projectdate');
-		
-			$db_item 				= $this->get_db_from_stub();
-			$db_result 				= $this->db->insert($this->table_project, $db_item);
+		public function insert($preliminary_project){
+			foreach($preliminary_project->task_array as $task){
+				$key				= key($preliminary_project->task_array);
+				
+				$this->id			= "";
+				$this->name			= $task;
+				$this->quantity		= $preliminary_project->quantity_array[$key];
+				$this->unit			= $preliminary_project->unit_array[$key];
+				$this->project_id	= $preliminary_project->project_id;
+				
+				$db_item 				= $this->get_db_from_stub();
+				$db_result 				= $this->db->insert($this->table_project, $db_item);
+				
+				next($preliminary_project->task_array);
+			}
+			//insert_batch
 		}
 	}
 ?>

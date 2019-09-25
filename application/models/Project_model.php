@@ -3,7 +3,6 @@
 	
 	class Project_model extends CI_Model {	
 		private $table_project = 'code_project';
-		// constructor
 		public $id;
 		public $start_date;
 		public $document_name;
@@ -89,8 +88,7 @@
 		}
 		public function insert_from_post()
 		{
-			print_r($this->session->userdata('project_general'));
-			$project_general			= $this->session->userdata('project_general');
+			$project_general		= $this->session->userdata('project_general');
 			$this->id				= "";
 			$this->created_by		= $this->session->userdata('user_id');
 			$this->client_id		= $project_general['client'];
@@ -100,7 +98,11 @@
 		
 			$db_item 				= $this->get_db_from_stub();
 			$db_result 				= $this->db->insert($this->table_project, $db_item);
+			$insert_id 				= $this->db->insert_id();
+
+			return  $insert_id;
 		}
+		
 		public function show_by_id($id)
 		{
 			$where['id'] = $id;
