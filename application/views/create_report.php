@@ -76,7 +76,7 @@ function wysiwygeditor($scope) {
 			<div class='col-md-2 col-sm-3 col-xs-4'>
 				<div class='image_preview' id="image-preview-1">
 					<label for="image-upload" id="image-label-1">Choose File</label>
-					<input type="file" name="image[1]" id="image-upload-1" accept="image/x-png,image/gif,image/jpeg"/>
+					<input type="file" name="image" id="image-upload-1" accept="image/x-png,image/gif,image/jpeg"/>
 				</div>
 			</div>
 			<div class='col-md-2 col-sm-3 col-xs-4'>
@@ -107,28 +107,28 @@ $(document).ready(function() {
 	$('.image_preview').each(function(){
 		$(this).height(image_preview_width);
 	});
+	
 	$.uploadPreview({
 		input_field		: "#image-upload-1", 
 		preview_box		: "#image-preview-1",
 		label_field		: "#image-label-1",  
 		label_default	: "Choose File", 
-		label_selected	: "Chosen",
 		no_label: false               
 	});
+	
 	$.uploadPreview({
 		input_field		: "#image-upload-2", 
 		preview_box		: "#image-preview-2",
 		label_field		: "#image-label-2",  
 		label_default	: "Choose File", 
-		label_selected	: "Chosen",
 		no_label: false               
 	});
+	
 	$.uploadPreview({
 		input_field		: "#image-upload-3", 
 		preview_box		: "#image-preview-3",
 		label_field		: "#image-label-3",  
 		label_default	: "Choose File", 
-		label_selected	: "Chosen",
 		no_label: false               
 	});
 });
@@ -170,9 +170,11 @@ $(window).resize(function(){
 			$("#confirm_notification").fadeIn();
 		}
 	});
+	
 	$(".btn-back").click(function(){
 		$("#confirm_notification").fadeOut();
 	});
+	
 	$("#confirm_button").click(function(){
 		var original = $('#string_input').val();
 		var converted = "`" + original + "`";

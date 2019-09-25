@@ -1,7 +1,7 @@
 <?php
 	defined('BASEPATH') OR exit('No direct script access allowed');
 	
-	class Weather_model extends CI_Controller {	
+	class Weather_model extends CI_Model {	
 		private $table_weather = 'mst_weather';
 		// constructor
 		public $id;
