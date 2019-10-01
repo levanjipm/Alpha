@@ -4,12 +4,14 @@
 	class Weather extends CI_Controller {
 		public function index()
 		{
+			$data_header['js_list'] = array();
+			$data_header['css_list'] = array();
+			$data_header['model'] = new class{};
 			
-			//Load body//
-			$data['js_list'] = array();
-			$data['css_list'] = array();
-			$data['model'] = new class{};
-			$this->load->view('header',$data);
+			$this->load->model('Dashboard_model');
+			$user_id 							= $this->session->userdata('user_id');
+			$data_header['profile_information']	= $this->Dashboard_model->profile_information($user_id);
+			$this->load->view('header',$data_header);
 			
 			$this->load->model('Weather_model');
 			$items = $this->Weather_model->show_all();
@@ -23,6 +25,10 @@
 			//Load header//
 			$data_header['css_list'] = array();
 			$data_header['js_list'] = array();
+			
+			$this->load->model('Dashboard_model');
+			$user_id 							= $this->session->userdata('user_id');
+			$data_header['profile_information']	= $this->Dashboard_model->profile_information($user_id);
 			$this->load->view('header',$data_header);
 			
 			$data['model'] = new class{};
@@ -43,6 +49,9 @@
 			//Load header//
 			$data_header['css_list'] = array();
 			$data_header['js_list'] = array();
+			$this->load->model('Dashboard_model');
+			$user_id 							= $this->session->userdata('user_id');
+			$data_header['profile_information']	= $this->Dashboard_model->profile_information($user_id);
 			$this->load->view('header',$data_header);
 			
 			$this->load->model('Weather_model');

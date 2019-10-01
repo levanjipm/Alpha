@@ -94,9 +94,9 @@
 			$this->db->select('*');
 			$this->db->from($this->table_client);
 			$this->db->where('name =', $this->input->post('client_name'));
-			$this->db->or_where('city =', $this->input->post('client_city'));
+			$this->db->where('city =', $this->input->post('client_city'));
+			$this->db->where('address =', $this->input->post('client_address'));
 			$item = $this->db->count_all_results();
-			echo $item;
 			
 			if($item == 0){
 				$this->id					= '';
@@ -110,14 +110,16 @@
 				$this->created_date			= date('Y-m-d');
 				$db_item 					= $this->get_db_from_stub($this);
 				$db_result 					= $this->db->insert($this->table_client, $db_item);
+				
 				if($db_result){
 					$text_result = 1;
 				} else {
-					$text_result = 0;
+					$text_result = 2;
 				}
 			} else {
-				$text_result = 0;
+				$text_result = 3;
 			}
+			
 			return $text_result;
 		}
 		public function show_by_id($id)
@@ -132,12 +134,24 @@
 		
 		public function update_from_post($id)
 		{
-			$where['id']		 = $id;
-			$this->name			= $this->input->post('weather_name');
+			$where['id']			= $id;
+			$this->name				= $this->input->post('client_name');
+			$this->address			= $this->input->post('client_address');
+			$this->city				= $this->input->post('client_city');
+			$this->pic				= $this->input->post('client_pic');
+			$this->phone			= $this->input->post('client_phone');
+			$this->npwp				= $this->input->post('client_npwp');
+			
+			$db_item = $this->get_db_from_stub();
 			
 			$this->db->where($where);
-			$this->db->set('name', $this->name);
-			$this->db->update($this->table_client);
+			// $this->db->set('name', $this->name);
+			// $this->db->set('address', $this->address);
+			// $this->db->set('city', $this->city);
+			// $this->db->set('pic', $this->pic);
+			// $this->db->set('phone', $this->phone);
+			// $this->db->set('npwp', $this->npwp);\
+			$this->db->update($this->table_client, $db_item);
 		}
 	}
 

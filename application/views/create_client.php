@@ -1,8 +1,5 @@
 	<h2 style='font-family:bebasneue'>Client</h2>
 	<hr>
-	<script>
-		var app = angular.module('myApp', ['ui.mask']);
-	</script>
 	<div ng-app='myApp'>
 		<form action='<?=site_url("Weather/create_weather")?>' method='POST' name='weatherName'>
 			<label>Nama Klien</label>

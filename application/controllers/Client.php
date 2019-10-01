@@ -10,7 +10,9 @@
 			//Load body//	
 			$data_header['css_list'] = array();
 			$data_header['js_list'] = array();
-			$data['model'] = new class{};
+			$this->load->model('Dashboard_model');
+			$user_id 							= $this->session->userdata('user_id');
+			$data_header['profile_information']	= $this->Dashboard_model->profile_information($user_id);
 			$this->load->view('header',$data_header);
 			
 			$this->load->model('Client_model');
@@ -25,6 +27,9 @@
 			//Load header//
 			$data_header['css_list'] = array('application/css/create_client.css');
 			$data_header['js_list'] = array();
+			$this->load->model('Dashboard_model');
+			$user_id 							= $this->session->userdata('user_id');
+			$data_header['profile_information']	= $this->Dashboard_model->profile_information($user_id);
 			$this->load->view('header',$data_header);
 			
 			$data['model'] = new class{};
@@ -44,6 +49,9 @@
 		{
 			//Load header//
 			$data_header['css_list'] = array();
+			$this->load->model('Dashboard_model');
+			$user_id 							= $this->session->userdata('user_id');
+			$data_header['profile_information']	= $this->Dashboard_model->profile_information($user_id);
 			$this->load->view('header',$data_header);
 			
 			$this->load->model('Weather_model');
